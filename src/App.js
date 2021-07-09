@@ -29,24 +29,41 @@ function App() {
       <Accordion>
 
         <AccordionItem>
-          <div>
+          <div className="AccordionItem__header">
             <AccordionTrigger>
-              トリガー
+              フシギダネ
             </AccordionTrigger>
           </div>
           <AccordionPanel>
-            <p>アコーディオンの内容</p>
+            <div className="AccordionPanel__content">
+              うまれたときから せなかに しょくぶつの タネが あって すこしずつ おおきく そだつ。
+            </div>
           </AccordionPanel>
         </AccordionItem>
-        
+
         <AccordionItem>
-          <div>
+          <div className="AccordionItem__header">
             <AccordionTrigger>
-              トリガー
+              ヒトカゲ
             </AccordionTrigger>
           </div>
           <AccordionPanel>
-            <p>アコーディオンの内容</p>
+            <div className="AccordionPanel__content">
+              うまれたときから しっぽに ほのおが ともっている。ほのおが きえたとき その いのちは おわって しまう。
+            </div>
+          </AccordionPanel>
+        </AccordionItem>
+
+        <AccordionItem>
+          <div className="AccordionItem__header">
+            <AccordionTrigger>
+              ゼニガメ
+            </AccordionTrigger>
+          </div>
+          <AccordionPanel>
+            <div className="AccordionPanel__content">
+              ながい くびを こうらのなかに ひっこめるとき いきおいよく みずでっぽうを はっしゃする。
+            </div>
           </AccordionPanel>
         </AccordionItem>
 

@@ -17,6 +17,7 @@ export const Provider = (props) => {
   //アイテムの状態
   const [itemState, setItemState] = useState({
     isExpanded: false,
+    panelDOM: null
   });
   
   //トリガーの状態管理
@@ -33,9 +34,10 @@ export const Provider = (props) => {
   //パネルのスタイル
   const [panelStyles, setPanelStyles] = useState({
     "height": 0,
-    "box-sizing": "border-box",
+    "boxSizing": "border-box",
     "visibility": "hidden",
     "overflow": "hidden",
+    "transition": `height .3s ease-out, visibility .3s`,
   });
   
   return (

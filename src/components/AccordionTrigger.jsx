@@ -1,6 +1,21 @@
 import React, {useState, useContext} from 'react'
 import { Provider, Context } from "./ItemContext";
 
+function getPanelHeight(panel) {
+  // パネルのコピーを作る
+  let ghostPanel = panel.cloneNode(true);
+  // パネルの親ノードに挿入
+  panel.parentNode.appendChild(ghostPanel);
+  // ひとまずみえなくする
+  ghostPanel.style.cssText = "display:block; height:auto; visibility:hidden;";
+  // コピーの高さを調べる
+  var ghostPanelHeight = ghostPanel.offsetHeight;
+  // コピーした要素を削除する
+  panel.parentNode.removeChild(ghostPanel);
+  // console.log(ghostPanelHeight)
+  return ghostPanelHeight
+}
+
 const AccordionTrigger = (props) => {
   const context = useContext(Context)
   console.log(context.triggerAttributes['aria-expanded'])
@@ -9,6 +24,10 @@ const AccordionTrigger = (props) => {
     
     //アコーディオンが開いているか？
     const itemExpanded = context.itemState['isExpanded']
+
+    const panelEl = context.itemState['panelDOM']
+    console.log(getPanelHeight(panelEl))
+
 
     //トリガー
     context.setTriggerAttributes( triggerAttributes =>({
@@ -23,7 +42,7 @@ const AccordionTrigger = (props) => {
     }));
     context.setPanelStyles( panelStyles =>({
       ...panelStyles,
-      "height": itemExpanded ? 0 : "auto",
+      "height": itemExpanded ? 0 : getPanelHeight(panelEl),
       "visibility": itemExpanded ? "hidden" : "visible",
     }));
 
