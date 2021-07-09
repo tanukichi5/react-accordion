@@ -38,6 +38,17 @@ function App() {
             <p>アコーディオンの内容</p>
           </AccordionPanel>
         </AccordionItem>
+        
+        <AccordionItem>
+          <div>
+            <AccordionTrigger>
+              トリガー
+            </AccordionTrigger>
+          </div>
+          <AccordionPanel>
+            <p>アコーディオンの内容</p>
+          </AccordionPanel>
+        </AccordionItem>
 
       </Accordion>
 
