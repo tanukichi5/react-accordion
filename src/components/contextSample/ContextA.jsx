@@ -1,4 +1,5 @@
 import React from 'react'
+import Provider, {Context} from './Context'
 // import ContextB from './ContextB'
 
 // const ContextA = () => <ContextB/>
@@ -8,9 +9,11 @@ import React from 'react'
 
 const ContextA = (props) => {
   return (
-    <div className="A">
-      {props.children}
-    </div>
+    <Provider>
+      <div className="A">
+        {props.children}
+      </div>
+    </Provider>
   );
 }
 

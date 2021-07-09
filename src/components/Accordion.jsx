@@ -7,11 +7,7 @@ const Accordion = (props) => {
   console.log(options)
   return (
     <Provider>
-      <div className="Accordion">
-        <p>aaa</p>
-        {/* <p>{resourceName.options.text}</p> */}
         {props.children}
-      </div>
     </Provider>
   );
 }

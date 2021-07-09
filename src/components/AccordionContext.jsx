@@ -4,7 +4,9 @@ export const Context = createContext()
 
 const Provider = (props) => {
   const options = {
-    text: "ほげ"
+    name: 'セイラ',
+    age: '17',
+    hobby: 'キャンプ'
   }
   // const [user, setUser] = useState({
   //   name: 'セイラ',

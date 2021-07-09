@@ -5,9 +5,9 @@ import './App.css';
 
 import Accordion from './components/Accordion';
 import AccordionItem from './components/AccordionItem';
+import AccordionTrigger from './components/AccordionTrigger';
 import AccordionPanel from './components/AccordionPanel';
 
-import Provider from './components/contextSample/Context'
 import ContextA from './components/contextSample/ContextA'
 import ContextC from './components/contextSample/ContextC'
 
@@ -20,18 +20,19 @@ function App() {
   return (
     <div className="App">
 
-      <Provider>
-        <ContextA>
-          <ContextC/>
-        </ContextA>
-      </Provider>
+      <ContextA>
+        <ContextC/>
+      </ContextA>
+
 
       
       <Accordion>
 
         <AccordionItem>
           <div>
-            <button>トリガー</button>
+            <AccordionTrigger>
+              トリガー
+            </AccordionTrigger>
           </div>
           <AccordionPanel>
             <p>アコーディオンの内容</p>
