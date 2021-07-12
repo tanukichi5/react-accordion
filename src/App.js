@@ -20,13 +20,13 @@ function App() {
   return (
     <div className="App">
 
-      <ContextA>
+      {/* <ContextA>
         <ContextC/>
-      </ContextA>
+      </ContextA> */}
 
 
       
-      <Accordion>
+      <Accordion defaultExpandedPanels={[0,1]} multipleOpen={false}>
 
         <AccordionItem>
           <div className="AccordionItem__header">

@@ -1,19 +1,23 @@
-import React, {createContext} from 'react'
+import React, {useState, createContext, useEffect} from 'react'
 
-export const Context = createContext()
+export const Context = createContext({
+  setAccordionState: () => {},
+})
 
 const Provider = (props) => {
-  const options = {
-    name: 'セイラ',
-    age: '17',
-    hobby: 'キャンプ'
-  }
-  // const [user, setUser] = useState({
-  //   name: 'セイラ',
-  //   age: '17'
-  // })
+
+  const [accordionState, setAccordionState] = useState({
+    expandedPanels: new Set(),
+    defaultExpandedPanels: [],
+    multipleOpen: true
+  });
+
+
   return (
-    <Context.Provider value={options}>
+    <Context.Provider value={{
+      accordionState,
+      setAccordionState
+    }}>
       {props.children}
     </Context.Provider>
   );

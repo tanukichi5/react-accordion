@@ -6,6 +6,8 @@ const AccordionPanel = (props) => {
   const context = useContext(Context)
   const paneleElement = useRef(null)
 
+
+
   useEffect(() => {
     //パネルのDOMを取得
     context.setItemState( itemState =>({
