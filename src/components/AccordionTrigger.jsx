@@ -13,25 +13,6 @@ const AccordionTrigger = (props) => {
     
     //アコーディオンが開いているか？
     const itemExpanded = context.itemState['isExpanded']
-    // console.log(getPanelHeight(panelEl))
-
-
-    //トリガー
-    // context.setTriggerAttributes( triggerAttributes =>({
-    //   ...triggerAttributes,
-    //   "aria-expanded": itemExpanded ? false : true
-    // }));
-
-    //パネル
-    // context.setPanelAttributes( panelAttributes =>({
-    //   ...panelAttributes,
-    //   "aria-hidden": itemExpanded ? true : false
-    // }));
-    // context.setPanelStyles( panelStyles =>({
-    //   ...panelStyles,
-    //   "height": itemExpanded ? 0 : getPanelHeight(panelEl),
-    //   "visibility": itemExpanded ? "hidden" : "visible",
-    // }));
 
     //アイテムの状態を変更
     context.setItemState( itemState =>({
@@ -39,10 +20,8 @@ const AccordionTrigger = (props) => {
       isExpanded: itemExpanded ? false : true
     }));
 
-    
-
     //開いているパネルのindexを保存
-    if(rootContext.accordionState['multipleOpen']) {
+    if(rootContext.accordionState['multipleExpanded']) {
       itemExpanded ? 
         rootContext.accordionState['expandedPanels'].delete(context.itemState.['index']) :
         rootContext.accordionState['expandedPanels'].add(context.itemState.['index'])

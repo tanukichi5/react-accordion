@@ -16,6 +16,43 @@ import ContextC from './components/contextSample/ContextC'
 
 function App() {
 
+  function open() {
+    console.log('開いた')
+  }
+  function close() {
+    console.log('閉じた')
+  }
+
+  const pokemon_1 = [
+    {
+      title: 'フシギダネ',
+      detail: 'うまれたときから せなかに しょくぶつの タネが あって すこしずつ おおきく そだつ。'
+    },
+    {
+      title: 'ヒトカゲ',
+      detail: 'うまれたときから しっぽに ほのおが ともっている。ほのおが きえたとき その いのちは おわって しまう。'
+    },
+    {
+      title: 'ゼニガメ',
+      detail: `<b>ながい</b> くびを こうらのなかに ひっこめるとき いきおいよく みずでっぽうを はっしゃする。`
+    }
+  ]
+
+  const pokemon_2 = [
+    {
+      title: 'チコリータ',
+      detail: 'うまれたときから せなかに しょくぶつの タネが あって すこしずつ おおきく そだつ。'
+    },
+    {
+      title: 'ヒノアラシ',
+      detail: 'うまれたときから しっぽに ほのおが ともっている。ほのおが きえたとき その いのちは おわって しまう。'
+    },
+    {
+      title: 'ワニノコ',
+      detail: `<b>ながい</b> くびを こうらのなかに ひっこめるとき いきおいよく みずでっぽうを はっしゃする。`
+    }
+  ]
+
 
   return (
     <div className="App">
@@ -26,9 +63,9 @@ function App() {
 
 
       
-      <Accordion defaultExpandedPanels={[0,1]} multipleOpen={false}>
+      <Accordion defaultExpandedPanels={[0]} multipleExpanded={true} content={pokemon_1} onOpen={open} onClose={close}>
 
-        <AccordionItem>
+        {/* <AccordionItem>
           <div className="AccordionItem__header">
             <AccordionTrigger>
               フシギダネ
@@ -65,11 +102,13 @@ function App() {
               ながい くびを こうらのなかに ひっこめるとき いきおいよく みずでっぽうを はっしゃする。
             </div>
           </AccordionPanel>
-        </AccordionItem>
+        </AccordionItem> */}
 
       </Accordion>
 
-      <header className="App-header">
+      <Accordion defaultExpandedPanels={[0]} multipleExpanded={false} content={pokemon_2} onOpen={open} onClose={close} />
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -82,7 +121,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
