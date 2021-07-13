@@ -56,6 +56,8 @@ p {
 }
 
 .AccordionTrigger {
+  display: flex;
+  align-items: center;
   padding: 0;
 	background: none;
 	border: none;
@@ -69,6 +71,18 @@ p {
   font-weight: bold;
   text-align: left;
   background: #eee;
+}
+.AccordionTrigger svg {
+  display: block;
+  margin-left: auto;
+
+}
+.AccordionTrigger[aria-expanded="false"] svg {
+  transform: rotate(-90deg);
+  transition: transform .2s;
+}
+.AccordionTrigger[aria-expanded="true"] svg {
+  transition: transform .2s;
 }
 
 .AccordionPanel__content {

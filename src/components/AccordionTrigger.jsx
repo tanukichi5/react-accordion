@@ -2,17 +2,18 @@ import React, {useState, useContext, useRef, useEffect} from 'react'
 import { Provider, Context } from "./ItemContext";
 import { Context as  accordionContext} from "./AccordionContext";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+
 
 const AccordionTrigger = (props) => {
   const context = useContext(Context)
   const rootContext = useContext(accordionContext)
-  // console.log(context.triggerAttributes['aria-expanded'])
+
+  //アコーディオンが開いているか？
+  const itemExpanded = context.itemState['isExpanded']
   
   const toggleAccordion = () => {
-
-    
-    //アコーディオンが開いているか？
-    const itemExpanded = context.itemState['isExpanded']
 
     //アイテムの状態を変更
     context.setItemState( itemState =>({
@@ -33,20 +34,19 @@ const AccordionTrigger = (props) => {
     } else {
       rootContext.setAccordionState( accordionState =>({
         ...accordionState,
-        expandedPanels: new Set([context.itemState.['index']])
+        //自身が開いている場合は閉じる
+        expandedPanels: itemExpanded ? new Set() : new Set([context.itemState.['index']])
       }));
       // console.log(rootContext.accordionState['expandedPanels'])
     }
-
-    // console.log(rootContext.accordionState)
-
 
    };
 
 
   return (
-    <button className="AccordionTrigger" onClick={toggleAccordion} {...context.triggerAttributes}>
+    <button className="AccordionTrigger" type="button" onClick={toggleAccordion} {...context.triggerAttributes}>
       {props.children}
+      <FontAwesomeIcon icon={itemExpanded ? faMinus : faPlus} />
     </button>
   );
 }

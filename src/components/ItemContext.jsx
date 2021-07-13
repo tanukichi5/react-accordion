@@ -22,9 +22,13 @@ export const Provider = (props) => {
 
   const rootContext = useContext(accordionContext);
 
+  //初期化時にパネルを開くかフラグ
   const isInitialExpanded = rootContext.accordionState[
     "defaultExpandedPanels"
   ].includes(props.panelIndex);
+
+  //ランダムなIDを生成
+  const randomID = Math.random().toString(36).slice(2);
 
   //アイテムの状態
   const [itemState, setItemState] = useState({
@@ -40,12 +44,13 @@ export const Provider = (props) => {
   //トリガーの状態管理
   const [triggerAttributes, setTriggerAttributes] = useState({
     "aria-expanded": itemState["isExpanded"] ? true : false,
+    "aria-controls": `accordion-${itemState['index']}-${randomID}`,
   });
 
   //パネルの状態管理
   const [panelAttributes, setPanelAttributes] = useState({
+    "id": `accordion-${itemState['index']}-${randomID}`,
     "aria-hidden": itemState["isExpanded"] ? false : true,
-    "aria-labelledby": "accordion",
   });
 
   //パネルのスタイル
@@ -74,7 +79,6 @@ export const Provider = (props) => {
         ...panelAttributes,
         "aria-hidden": itemState["isExpanded"] ? false : true,
       }));
-
       setPanelStyles((panelStyles) => ({
         ...panelStyles,
         height: itemState["isExpanded"]
