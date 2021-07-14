@@ -18,8 +18,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && gh-pages -d build"
   },
+  "homepage": "https://tanukichi5.github.io/react-accordion",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -40,5 +42,8 @@
   },
   "volta": {
     "node": "12.19.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
