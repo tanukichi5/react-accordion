@@ -1,7 +1,14 @@
 # Reactを勉強しながらアコーディオンを作成
 
 Reactを勉強しつつアコーディオンを作成してみました。
+
 TypeScriptは今後勉強します。
+
+## デモページ
+
+[確認用ページ](https://tanukichi5.github.io/react-accordion/)
+
+
 
 ## 環境構築
 
